@@ -4,12 +4,16 @@ import { UpdateTelemetryDto } from './dto/update-telemetry.dto';
 
 @Injectable()
 export class TelemetryService {
+  private readings: CreateTelemetryDto[] = [];
+
   create(createTelemetryDto: CreateTelemetryDto) {
-    return 'This action adds a new telemetry';
+    this.readings.push(createTelemetryDto);
+    if (this.readings.length > 500) this.readings.shift();
+    return createTelemetryDto;
   }
 
   findAll() {
-    return `This action returns all telemetry`;
+    return this.readings;
   }
 
   findOne(id: number) {
