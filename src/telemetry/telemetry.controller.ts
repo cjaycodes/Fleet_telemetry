@@ -18,10 +18,10 @@ export class TelemetryController {
     return this.telemetryService.findAll();
   }
 
-  @Get(':id')
+  /*@Get(':id')
   findOne(@Param('id') id: string) {
     return this.telemetryService.findOne(+id);
-  }
+  }*/
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateTelemetryDto: UpdateTelemetryDto) {
